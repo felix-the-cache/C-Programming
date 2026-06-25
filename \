@@ -1,0 +1,32 @@
+#include "arraysC.h"
+#include "func.h"
+#include <atomic>
+#include <stdio.h>
+
+int main(void) {
+
+  unsigned int *p;
+  char b[9];
+  double c[10];
+
+  unsigned int z[4] = {1, 2, 4, 5};
+
+  int arr[4] = {10, 20, 30, 40};
+  int *pointer = arr;
+
+  p = z;
+
+  for (int i = 0; i < sizeof(z) / sizeof(z[0]); i++) {
+    printf("%u\n", p[i]);
+  }
+
+  printf("Address of z: %p\n", &p[0]);
+
+  testingArray(44);
+}
+
+int fighting(int a, int b) { return a + b; }
+
+char fightingTwo(char a, char b) { return a == b; }
+
+int Testing(int a, int b) { return a - b; }
