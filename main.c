@@ -104,5 +104,5 @@ int main(void) {
   }
 
   int testing;
-  int testing2;
+  int testing3;
 }
