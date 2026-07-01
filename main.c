@@ -102,7 +102,4 @@ int main(void) {
     printf("Right Child %d\n", rootA[r]);
     rootI = rootI + 1;
   }
-
-  int testing;
-  int testing3;
 }
