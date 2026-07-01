@@ -78,4 +78,28 @@ int main(void) {
       }
     }
   }
+
+  // Wokring on some graphing in the arrays
+  printf(" ======== Graphs ======== \n");
+
+  int ga[7][7];
+  for (int i = 0; i < 7; i++) {
+    for (int j = 0; j < 7; j++) {
+      if (ga[i][j] == 1) {
+        // edge process;
+      }
+    }
+  }
+
+  int rootA[7] = {1, 2, 3, 4, 5, 6, 7};
+  int rootI = 0;
+
+  while (rootI < 3) {
+    int l = 2 * rootI + 1;
+    int r = 2 * rootI + 2;
+    printf("Root: %d\n", rootA[rootI]);
+    printf("Left Child %d\n", rootA[l]);
+    printf("Right Child %d\n", rootA[r]);
+    rootI = rootI + 1;
+  }
 }
