@@ -1,5 +1,6 @@
 #include <stddef.h> // this allows the NULL macro;
 
+typedef signed char schar_type, *schar_p;
 typedef unsigned int
     uint_type; // assigning a type alias to the unsigned type. this can make
                // certain type more clear to readers
