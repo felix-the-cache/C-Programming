@@ -45,4 +45,25 @@ int main(void) {
     printf("Right Child %d\n", rootA[r]);
     rootI = rootI + 1;
   }
+
+  printf("====== String Arrays ====== \n");
+  char str1[10] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'};
+
+  char str[11];
+
+  for (unsigned int i = 0; i < 10; i++) {
+    str[i] = '0' + i;
+  }
+
+  str[10] = '\0';
+  printf("Strings: %s \n", str);
+
+  void func(int arr[5]);
+
+  unsigned int test = 0;
+  unsigned int test2 = 0;
+
+  int arr1[3][4];
+  func(arr1[test]);
+  int test3 = arr1[test][test2];
 }
