@@ -64,6 +64,25 @@ int main(void) {
   unsigned int test2 = 0;
 
   int arr1[3][4];
-  func(arr1[test]);
+  // func(arr1[test]);
   int test3 = arr1[test][test2];
+
+  printf("======== Union types =======\n");
+
+  union Data {
+    int i;
+    int f;
+    char c;
+  };
+
+  union Data d;
+  d.i = 65;
+  printf("%d\n", d.i); // 65
+  d.c = 'c';
+  printf("Data now changing..... \n");
+  printf("%c\n",
+         d.c); // c -- but now d.i is garbage as d(Data) memory is overwritten
+
+  const int i = 2;
+  // i = 2; // runtime error -- const-qualified
 }
