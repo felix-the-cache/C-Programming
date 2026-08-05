@@ -43,3 +43,19 @@ int SalaryP() {
   free(salary);
   free(myList);
 }
+
+int ptrSwap() {
+  int x, y, temp;
+  int *px = &x;
+  int *py = &y;
+
+  printf("before swap: x %d, y: %d\n", x, y);
+
+  temp = *px;
+  *px = *py;
+  *py = temp;
+
+  printf("After swap: x: %d, y: %d\n", x, y);
+
+  return 0;
+}
