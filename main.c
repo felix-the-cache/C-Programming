@@ -64,7 +64,7 @@ int main(void) {
   unsigned int test2 = 0;
 
   int arr1[3][4];
-  // func(arr1[test]);
+
   int test3 = arr1[test][test2];
 
   printf("======== Union types =======\n");
@@ -85,4 +85,23 @@ int main(void) {
 
   const int i = 2;
   // i = 2; // runtime error -- const-qualified
+  for (int i = 0; i < 10; i++) {
+    printf("I: %d\n", i);
+  }
+
+  int pa = 12;
+  int *pb = &pa;
+  int **pc = &pb;
+
+  printf("PC: %d\n", **pc); // 12
 }
+
+struct Test {
+  int main;
+  char test;
+  float fighting;
+  union Testing {
+    int testing;
+    char word_testing;
+  };
+};
