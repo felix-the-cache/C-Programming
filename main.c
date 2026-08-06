@@ -89,11 +89,13 @@ int main(void) {
     printf("I: %d\n", i);
   }
 
-  int pa = 12;
-  int *pb = &pa;
-  int **pc = &pb;
-
-  printf("PC: %d\n", **pc); // 12
+  char *p;
+  char arr[42];
+  printf("Size of p is: %d\n", p);
+  printf("Size of &arr[0]: %d\n",
+         sizeof(&arr[0])); // addr to the first element in the array
+  printf("Size of arr: %d\n",
+         sizeof(arr)); // will print 42 since chars are only one byte
 }
 
 struct Test {
@@ -104,4 +106,4 @@ struct Test {
     int testing;
     char word_testing;
   };
-};
+} *struct_test;

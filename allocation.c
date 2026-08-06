@@ -59,3 +59,20 @@ int ptrSwap() {
 
   return 0;
 }
+// Function working on arrays within a function -- POinter arrays in functions
+// soon
+void initArray(int arr[], int arrCap, int factor) {
+  int i;
+  for (i = 0; i < arrCap; i++)
+    arr[i] = i * factor;
+}
+
+void swapArrays(int a[], int aCnt, int b[], int bCnt) {
+  int i;
+  if (aCnt != bCnt)
+    return;
+
+  for (i = 0; i < aCnt; i++) {
+    (&a[i], &b[i]);
+  }
+}
