@@ -1,6 +1,11 @@
 #include "swap0.h"
+#include <cstdio>
 #include <stdint.h>
 #include <stdio.h>
+
+void printSizeof(char arr[]) {
+  printf("in printSizeof(): sizeof arr is: %d\n", sizeof(arr));
+}
 
 int main(void) {
   printf("======= Two d Array ======= \n");
@@ -96,6 +101,8 @@ int main(void) {
          sizeof(&arr[0])); // addr to the first element in the array
   printf("Size of arr: %d\n",
          sizeof(arr)); // will print 42 since chars are only one byte
+
+  printSizeof(arr); // this will print out 4 -- looks at notes to figure out why
 }
 
 struct Test {
