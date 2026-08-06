@@ -1,5 +1,4 @@
 #include "swap0.h"
-#include <cstdio>
 #include <stdint.h>
 #include <stdio.h>
 
@@ -102,7 +101,9 @@ int main(void) {
   printf("Size of arr: %d\n",
          sizeof(arr)); // will print 42 since chars are only one byte
 
-  printSizeof(arr); // this will print out 4 -- looks at notes to figure out why
+  printSizeof(
+      arr); // this will print out 8(64-bit system, this would print 4 if it was
+            // a 32-bit system) -- looks at notes to figure out why
 }
 
 struct Test {
