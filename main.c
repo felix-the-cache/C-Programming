@@ -1,9 +1,23 @@
 #include "swap0.h"
 #include <stdint.h>
 #include <stdio.h>
+#define N 10
+#define TRUE 1
+#define FALSE 0
 
-void printSizeof(char arr[]) {
-  printf("in printSizeof(): sizeof arr is: %d\n", sizeof(arr));
+// pointer to a NULL-terminated list of pointers, search the strings in the list
+// for a particularr character./
+int find_char(char **strings, char value) {
+  char *string; // The string we're looking at
+
+  while ((string = *strings++) != NULL) {
+    while (*string != '\0') {
+      if (*string == value) {
+        return TRUE;
+      }
+    }
+  }
+  return FALSE;
 }
 
 int main(void) {
@@ -101,9 +115,6 @@ int main(void) {
   printf("Size of arr: %d\n",
          sizeof(arr)); // will print 42 since chars are only one byte
 
-  printSizeof(
-      arr); // this will print out 8(64-bit system, this would print 4 if it was
-            // a 32-bit system) -- looks at notes to figure out why
   p = arr;
 
   printf("First memory for Pointer p: %d\n,lSecond memory storage location for "
@@ -123,6 +134,13 @@ int main(void) {
 Where is Pointerp: 1806576896
 Where is Pointerp: 1806576900
 */
+
+  char name[N];
+
+  printf("Enter your first name: ");
+  scanf("%s", name);
+
+  printf("Your name is %s\n", name);
 }
 
 struct Test {
