@@ -104,6 +104,25 @@ int main(void) {
   printSizeof(
       arr); // this will print out 8(64-bit system, this would print 4 if it was
             // a 32-bit system) -- looks at notes to figure out why
+  p = arr;
+
+  printf("First memory for Pointer p: %d\n,lSecond memory storage location for "
+         "Pointer p: %d\n",
+         p, p + 1);
+
+  printf("Size of int: %d\n", sizeof(int));
+  int arr2[] = {2, 4, 6, 8, 10};
+  int *pPointer = arr2;
+  printf("Where is Pointerp: %d\n", pPointer);
+  pPointer += 1;
+
+  printf("Where is Pointerp: %d\n", pPointer);
+
+  /*
+   Size of int: 4
+Where is Pointerp: 1806576896
+Where is Pointerp: 1806576900
+*/
 }
 
 struct Test {
