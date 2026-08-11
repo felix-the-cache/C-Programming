@@ -1,6 +1,8 @@
 #include "swap0.h"
+#include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 #define N 10
 #define TRUE 1
 #define FALSE 0
@@ -19,6 +21,22 @@ int find_char(char **strings, char value) {
   }
   return FALSE;
 }
+
+typedef struct {
+  char product[10];
+  int quantity;
+  float unit_price;
+  float total_amount;
+} Transaction;
+
+typedef struct {
+  double d;
+  int i;
+  char c;
+  float f;
+} widget;
+
+void print_receipt(Transaction trans) { printf("%s\n", trans.product); }
 
 int main(void) {
   printf("======= Two d Array ======= \n");
@@ -141,6 +159,15 @@ Where is Pointerp: 1806576900
   scanf("%s", name);
 
   printf("Your name is %s\n", name);
+
+  widget *pointerM = malloc(sizeof(*p));
+  if (pointerM == NULL) {
+    // handle allocation error
+  }
+  free(pointerM);
+  void *vp = malloc(sizeof(int));
+
+  free(vp);
 }
 
 struct Test {
