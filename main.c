@@ -193,6 +193,13 @@ Where is Pointerp: 1806576900
   }
 
   printf("Size of arrPointer = %d\n", sizeof(*arrPointer));
+
+  free(arrPointer);
+  arrPointer = NULL;
+  free(tempPointer);
+  tempPointer = NULL;
+  free(pointerI);
+  pointerI = NULL;
 }
 
 struct Test {
