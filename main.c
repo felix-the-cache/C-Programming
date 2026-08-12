@@ -162,12 +162,13 @@ Where is Pointerp: 1806576900
   printf("Your name is %s\n", name);
 
   widget w = {3.4, 4, 'l', 44.89};
-  char *pointerM = malloc(sizeof(char));
+  int *pointerM =
+      malloc(sizeof(*pointerM)); // assign it to itself in case type changes
   if (pointerM == NULL) {
     exit(1);
   }
-  memcpy(pointerM, &w.c, sizeof(w.c));
-  printf("%c = pointerM\n", *pointerM);
+  memcpy(pointerM, &w.i, sizeof(w.i));
+  printf("%d= pointerM\n", *pointerM);
 
   free(pointerM);
   pointerM = NULL;
@@ -179,6 +180,19 @@ Where is Pointerp: 1806576900
   memcpy(pointerI, &w.i, sizeof(w.i));
 
   printf("%d = PointerI\n", *pointerI);
+
+  int *arrPointer = calloc(5, sizeof(int)); // all 5 ints = 0
+  printf("%d = arrPointer\n", *arrPointer);
+
+  printf("Size of arrPointer = %d\n", sizeof(*arrPointer));
+  int *tempPointer = realloc(arrPointer, 10 * sizeof(int));
+  if (tempPointer == NULL) {
+    exit(1);
+  } else {
+    arrPointer = tempPointer;
+  }
+
+  printf("Size of arrPointer = %d\n", sizeof(*arrPointer));
 }
 
 struct Test {
