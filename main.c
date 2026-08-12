@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #define N 10
 #define TRUE 1
 #define FALSE 0
@@ -160,14 +161,24 @@ Where is Pointerp: 1806576900
 
   printf("Your name is %s\n", name);
 
-  widget *pointerM = malloc(sizeof(*p));
+  widget w = {3.4, 4, 'l', 44.89};
+  char *pointerM = malloc(sizeof(char));
   if (pointerM == NULL) {
-    // handle allocation error
+    exit(1);
   }
-  free(pointerM);
-  void *vp = malloc(sizeof(int));
+  memcpy(pointerM, &w.c, sizeof(w.c));
+  printf("%c = pointerM\n", *pointerM);
 
-  free(vp);
+  free(pointerM);
+  pointerM = NULL;
+
+  int *pointerI = malloc(sizeof(int));
+  if (pointerI == NULL) {
+    exit(1);
+  }
+  memcpy(pointerI, &w.i, sizeof(w.i));
+
+  printf("%d = PointerI\n", *pointerI);
 }
 
 struct Test {
