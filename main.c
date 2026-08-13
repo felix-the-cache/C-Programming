@@ -1,6 +1,14 @@
 #include "swap0.h"
+#include <memory.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
+
+typedef struct {
+  int i;
+  double d;
+  char c;
+} widget;
 
 int main(void) {
   printf("======= Two d Array ======= \n");
@@ -97,6 +105,14 @@ int main(void) {
   checkpoint = **ptr_ptr;
 
   printf("ptr_ptr = %d\n", checkpoint);
+
+  widget w = {3, 3.2, 'c'};
+  char *pointerChar = malloc(sizeof(char));
+  memcpy(pointerChar, &w.c, sizeof(w.c));
+  printf("pointerChar = %c\n", *pointerChar);
+
+  free(pointerChar);
+  pointerChar = NULL;
 }
 
 struct Test {
