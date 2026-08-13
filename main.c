@@ -1,43 +1,6 @@
 #include "swap0.h"
-#include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#define N 10
-#define TRUE 1
-#define FALSE 0
-
-// pointer to a NULL-terminated list of pointers, search the strings in the list
-// for a particularr character./
-int find_char(char **strings, char value) {
-  char *string; // The string we're looking at
-
-  while ((string = *strings++) != NULL) {
-    while (*string != '\0') {
-      if (*string == value) {
-        return TRUE;
-      }
-    }
-  }
-  return FALSE;
-}
-
-typedef struct {
-  char product[10];
-  int quantity;
-  float unit_price;
-  float total_amount;
-} Transaction;
-
-typedef struct {
-  double d;
-  int i;
-  char c;
-  float f;
-} widget;
-
-void print_receipt(Transaction trans) { printf("%s\n", trans.product); }
 
 int main(void) {
   printf("======= Two d Array ======= \n");
@@ -126,80 +89,14 @@ int main(void) {
     printf("I: %d\n", i);
   }
 
-  char *p;
-  char arr[42];
-  printf("Size of p is: %d\n", p);
-  printf("Size of &arr[0]: %d\n",
-         sizeof(&arr[0])); // addr to the first element in the array
-  printf("Size of arr: %d\n",
-         sizeof(arr)); // will print 42 since chars are only one byte
+  int checkpoint = 0;
+  int testingPointer = 3;
+  int *pointerTester = &testingPointer;
 
-  p = arr;
+  int **ptr_ptr = &pointerTester;
+  checkpoint = **ptr_ptr;
 
-  printf("First memory for Pointer p: %d\n,lSecond memory storage location for "
-         "Pointer p: %d\n",
-         p, p + 1);
-
-  printf("Size of int: %d\n", sizeof(int));
-  int arr2[] = {2, 4, 6, 8, 10};
-  int *pPointer = arr2;
-  printf("Where is Pointerp: %d\n", pPointer);
-  pPointer += 1;
-
-  printf("Where is Pointerp: %d\n", pPointer);
-
-  /*
-   Size of int: 4
-Where is Pointerp: 1806576896
-Where is Pointerp: 1806576900
-*/
-
-  char name[N];
-
-  printf("Enter your first name: ");
-  scanf("%s", name);
-
-  printf("Your name is %s\n", name);
-
-  widget w = {3.4, 4, 'l', 44.89};
-  int *pointerM =
-      malloc(sizeof(*pointerM)); // assign it to itself in case type changes
-  if (pointerM == NULL) {
-    exit(1);
-  }
-  memcpy(pointerM, &w.i, sizeof(w.i));
-  printf("%d= pointerM\n", *pointerM);
-
-  free(pointerM);
-  pointerM = NULL;
-
-  int *pointerI = malloc(sizeof(int));
-  if (pointerI == NULL) {
-    exit(1);
-  }
-  memcpy(pointerI, &w.i, sizeof(w.i));
-
-  printf("%d = PointerI\n", *pointerI);
-
-  int *arrPointer = calloc(5, sizeof(int)); // all 5 ints = 0
-  printf("%d = arrPointer\n", *arrPointer);
-
-  printf("Size of arrPointer = %d\n", sizeof(*arrPointer));
-  int *tempPointer = realloc(arrPointer, 10 * sizeof(int));
-  if (tempPointer == NULL) {
-    exit(1);
-  } else {
-    arrPointer = tempPointer;
-  }
-
-  printf("Size of arrPointer = %d\n", sizeof(*arrPointer));
-
-  free(arrPointer);
-  arrPointer = NULL;
-  free(tempPointer);
-  tempPointer = NULL;
-  free(pointerI);
-  pointerI = NULL;
+  printf("ptr_ptr = %d\n", checkpoint);
 }
 
 struct Test {
